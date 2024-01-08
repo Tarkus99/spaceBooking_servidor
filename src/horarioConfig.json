@@ -1,0 +1,15 @@
+[
+  {
+    "horaInicio": "14:35",
+    "horaFin": "21:20",
+    "duracionSesion": "55",
+    "inicioCurso": "2023-09-01",
+    "finCurso": "2024-07-31",
+    "descansos": [
+      {
+        "inicio": "17:20",
+        "duracion": "20"
+      }
+    ]
+  }
+]

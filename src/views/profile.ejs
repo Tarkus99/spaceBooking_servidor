@@ -1,0 +1,30 @@
+<% layout('main') -%>
+<h1>Pagina del perfil de <%= user.name %></h1>
+<h2>Nombre de usuario: <%= user.username %></h2>
+
+<div class="spacesContainer flex gap-3 p-3 w-2/4 bg-slate-100 rounded overflow-x-scroll mx-auto mb-5">
+    <% rows.forEach(function(item) {%>
+        <div class="p-2 rounded bg-blue-100 text-center cursor-pointer" data-id="<%= item.id %>" space="">
+            <%= item.nombre %>
+        </div>
+    <% }) %>
+</div>
+
+<div class="weekView h-96 w-3/4 bg-slate-200 p-3 mx-auto grid grid-cols-[25% 75%] auto-rows-min">
+    <div class="weekHeader col-start-2 grid grid-cols-5 grid-rows-1">
+        <div class="head">Lunes</div>
+        <div class="head">Martes</div>
+        <div class="head">Miércoles</div>
+        <div class="head">Jueves</div>
+        <div class="head">Viernes</div>
+    </div>
+    <div class="weekIntervals cols-start-1 row-start-2 grid gap-2 bg-slate-300 p-2">
+
+    </div>
+
+    <div class="weekInfo col-start-2 row-start-2 grid grid-cols-5 grid-rows-8 gap-2 bg-slate-400 p-2">
+
+    </div>
+</div>
+
+<% block('script').append('<script src="/scripts/profile.script.js"></script>') %>

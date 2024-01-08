@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .ocupado{
+        @apply bg-stone-400
+    }
+
+    .libre{
+        @apply bg-emerald-200
+    }
+}
+
+.col-start-2 {
+  grid-column-start: 2;
+}
+
+.col-start-3 {
+  grid-column-start: 3;
+}
+
+.col-start-4 {
+  grid-column-start: 4;
+}
+
+.col-start-5 {
+  grid-column-start: 5;
+}
+
+.row-start-1{
+    grid-row-start: 1;
+}
+.row-start-2{
+    grid-row-start: 2;
+}
+.row-start-3{
+    grid-row-start: 3;
+}
+.row-start-4{
+    grid-row-start: 4;
+}
+.row-start-5{
+    grid-row-start: 5;
+}
+.row-start-6{
+    grid-row-start: 6;
+}
+.row-start-7{
+    grid-row-start: 7;
+}
+.row-start-8{
+    grid-row-start: 8;
+}
+
+.row-span-1{
+    grid-row: span 1;
+}
+
+.row-span-2{
+    grid-row: span 2;
+}

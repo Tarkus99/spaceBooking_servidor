@@ -1,0 +1,28 @@
+<% layout('main') -%>
+    <form action="/form/validate" method="post">
+        Hora inicio:
+        <input type="time" name="horaInicio"><br>
+        Hora fin:
+        <input type="time" name="horaFin"><br>
+        Duración cada hora:
+        <input type="number" name="duracionSesion"><br>
+
+        Descansos:<br>
+        Descanso 1
+        <input type="time" name="descanso">
+        Duración 1
+        <input type="number" name="duracion"><br>
+
+        Descanso 2
+        <input type="time" name="descanso">
+        Duración 2
+        <input type="number" name="duracion"><br>
+
+        Fecha inicio curso:
+        <input type="date" name="inicioCurso"><br><br>
+        Fecha fin curso:
+        <input type="date" name="finCurso"><br><br>
+
+        <input type="submit" value="enviar">
+    </form>
+<%= message %>
