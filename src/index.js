@@ -9,16 +9,14 @@ const passport = require('passport');
 const { database } = require('./keys');
 const pool = require('./database')
 const cors = require('cors')
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const { log } = require('console');
 
 //init
 require('./passport/passport')
 
 //settings
 app.set('port', process.env.PORT || 4000);
-app.engine('ejs', engine);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
 
 //middleware
 app.use(session({
@@ -27,10 +25,13 @@ app.use(session({
     saveUninitialized: false,
     store: new mySqlStore(database)
 }))
+
+
+app.use(bodyParser.urlencoded())
+app.use(bodyParser.json())
+
 app.use(cors({ origin: 'http://localhost:3000' }))
 app.use(morgan('dev'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -79,6 +80,8 @@ app.use('/horario', async (req, res) => {
     const horario = saveSesions(config[0]);
     res.send(horario)
 })
+
+
 
 
 
