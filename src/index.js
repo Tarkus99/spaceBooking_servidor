@@ -78,9 +78,6 @@ app.use('/horario', async (req, res) => {
 })
 
 
-
-
-
 app.use('/auth', require('./routes/auth.routes'));
 app.use(require('./routes/config.routes'));
 app.use('/:username/inicio', require('./routes/profile.routes'));

@@ -5,6 +5,7 @@ const helpers = require('../lib/helpers');
 
 passport.use('local-signin', new LocalStrategy({usernameField: 'username', passwordField: 'password', passReqToCallback: true},
  async (req, username, password, done) => {
+    console.log(req.body);
     try {
         const row = await pool.query('SELECT * FROM usuario WHERE username = ?', [username]);
         if (row.length > 0) {
@@ -27,11 +28,8 @@ passport.use('local-signin', new LocalStrategy({usernameField: 'username', passw
     }
 }))
 
-passport.use('local-signup', new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password',
-    passReqToCallback: true
-}, async (req, username, password, done) => {
+passport.use('local-signup', new LocalStrategy({ usernameField: 'username', passwordField: 'password', passReqToCallback: true},
+ async (req, username, password, done) => {
     const { fullName } = req.body;
     const newUser = {
         username,
