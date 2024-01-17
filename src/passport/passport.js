@@ -32,11 +32,11 @@ passport.use('local-signup', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, username, password, done) => {
-    const { name } = req.body;
+    const { fullName } = req.body;
     const newUser = {
         username,
         password,
-        name
+        name:fullName
     };
     newUser.password = await helpers.encryptPassword(password);
     try {
@@ -44,6 +44,7 @@ passport.use('local-signup', new LocalStrategy({
         newUser.id = result.insertId;
         return done(null, newUser);
     } catch (error) {
+        console.log(error);
         return done(null, false, {message: 'Ese nombre de usuario ya existe'});
     }
     

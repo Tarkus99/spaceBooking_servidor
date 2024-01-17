@@ -1,10 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const pool = require('../database');
 const { isLoggedIn, isNotLoggedIn, isAdmin } = require('../lib/auth');
 
 router.get('/', isNotLoggedIn, (req, res) => {
     res.render('logeo');
+})
+
+router.get('/signup/exists/', async (req, res) => {
+    const row = await pool.query('SELECT * FROM usuario where username = ?', [req.query.username])
+    if (row.length > 0)
+        return res.status(401).json(false)
+    return res.status(200).json(true);
 })
 
 router.post('/login', isNotLoggedIn, async (req, res, next) => {
