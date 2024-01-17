@@ -8,9 +8,11 @@ module.exports = {
     },
 
     isNotLoggedIn(req, res, next){
+        console.log('comprobado si hay algunh usuario registrado');
         if (!req.isAuthenticated())
             return next();
-        return res.redirect('/' + req.user.username + '/inicio');
+        /* return res.redirect('/' + req.user.username + '/inicio'); */
+        return res.status(401).send({message: 'Ya hay un usuario registrado'});
     },
 
     isAdmin(req, res, next) {
