@@ -15,8 +15,7 @@ router.get('/signup/exists/', async (req, res) => {
     return res.status(200).json(true);
 })
 
-router.post('/login', isNotLoggedIn, async (req, res, next) => {
-    console.log(req);
+router.post('/login', isNotLoggedIn, async (req, res, next) => {;
     passport.authenticate('local-signin', (err, user, info)=>{
 
         if (err) 
