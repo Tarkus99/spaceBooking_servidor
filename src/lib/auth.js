@@ -7,12 +7,12 @@ module.exports = {
         return res.send({ message: 'Debes estar autenticado' });
     },
 
-    isNotLoggedIn(req, res, next){
+    isNotLoggedIn(req, res, next) {
         console.log('comprobado si hay algunh usuario registrado');
         if (!req.isAuthenticated())
             return next();
         /* return res.redirect('/' + req.user.username + '/inicio'); */
-        return res.status(401).send({message: 'Ya hay un usuario registrado'});
+        return res.status(400).send({message: 'Ya hay un usuario registrado'});
     },
 
     isAdmin(req, res, next) {
